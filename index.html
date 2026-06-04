@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medicine Buddha Puja — Full Liturgy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Serif+Tibetan:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --lapis:#1a4a7a;--lapis-d:#0d2d4f;--lapis-l:#2a6aaa;--lapis-pale:#e8f0f8;
+  --gold:#b8860b;--gold-l:#d4a820;--gold-pale:#fdf6e3;--gold-bright:#f0c040;
+  --cream:#faf8f3;--parchment:#f5f0e8;--ink:#1c1a16;--ink-m:#4a4640;--ink-l:#8a8278;
+  --border:#d8d0c0;--border-g:#c8a840;--saffron:#c85000;
+  --font-tib:'Noto Serif Tibetan',serif;
+  --font-serif:'EB Garamond',Georgia,serif;
+  --font-title:'Cinzel',serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-serif);background:var(--cream);color:var(--ink);font-size:17px;line-height:1.75;min-height:100vh}
+
+/* ── SIDEBAR NAV ── */
+#nav{
+  position:fixed;top:0;left:0;bottom:0;width:260px;
+  background:var(--lapis-d);overflow-y:auto;z-index:200;
+  padding:0 0 40px;
+  transition:transform .3s ease;
+}
+#nav-header{
+  padding:28px 20px 20px;
+  border-bottom:1px solid rgba(255,255,255,.1);
+  position:sticky;top:0;background:var(--lapis-d);z-index:1;
+}
+#nav-title{font-family:var(--font-title);font-size:12px;letter-spacing:2px;color:var(--gold-l);text-transform:uppercase;margin-bottom:4px}
+#nav-sub{font-size:12px;color:rgba(255,255,255,.35);font-style:italic}
+#nav ul{list-style:none;padding:12px 0}
+#nav li a{
+  display:flex;align-items:center;gap:10px;
+  padding:9px 20px;font-size:13px;color:rgba(255,255,255,.6);
+  text-decoration:none;transition:all .15s;border-left:3px solid transparent;
+}
+#nav li a:hover,#nav li a.active{color:#fff;background:rgba(255,255,255,.05);border-left-color:var(--gold)}
+#nav li a .num{font-family:var(--font-title);font-size:10px;color:var(--gold-l);min-width:20px}
+#lang-toggle{
+  margin:16px 20px 0;display:flex;gap:4px;flex-wrap:wrap;
+}
+.ltog{
+  padding:4px 10px;font-size:11px;border:1px solid rgba(255,255,255,.2);
+  border-radius:20px;color:rgba(255,255,255,.5);cursor:pointer;transition:all .15s;
+  background:none;font-family:var(--font-serif);
+}
+.ltog.on{background:var(--gold);border-color:var(--gold);color:#000}
+
+/* ── HAMBURGER ── */
+#menu-btn{
+  display:none;position:fixed;top:16px;left:16px;z-index:300;
+  width:40px;height:40px;background:var(--lapis-d);border:none;cursor:pointer;
+  border-radius:6px;flex-direction:column;align-items:center;justify-content:center;gap:5px;
+}
+#menu-btn span{display:block;width:20px;height:1.5px;background:#fff;transition:.3s}
+
+/* ── MAIN ── */
+#main{margin-left:260px;min-height:100vh}
+
+/* ── HERO ── */
+#hero{
+  background:var(--lapis-d);padding:64px 60px 56px;
+  position:relative;overflow:hidden;
+}
+#hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(58,138,220,.2) 0%,transparent 70%),
+             radial-gradient(ellipse 30% 40% at 10% 100%,rgba(180,134,11,.12) 0%,transparent 60%);
+}
+.hero-ornament{
+  font-size:10px;letter-spacing:5px;color:var(--gold-l);text-transform:uppercase;
+  margin-bottom:24px;position:relative;display:flex;align-items:center;gap:14px;
+}
+.hero-ornament::before,.hero-ornament::after{
+  content:'';flex:1;max-width:80px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold-l),transparent);
+}
+.hero-tib{font-family:var(--font-tib);font-size:16px;color:rgba(255,255,255,.5);line-height:2.2;margin-bottom:20px;position:relative}
+.hero-h1{font-family:var(--font-title);font-size:clamp(20px,3vw,34px);font-weight:500;color:#fff;line-height:1.25;margin-bottom:12px;position:relative}
+.hero-sub{font-family:var(--font-serif);font-style:italic;font-size:clamp(15px,1.8vw,20px);color:var(--gold-l);margin-bottom:16px;position:relative}
+.hero-zh{font-size:15px;color:rgba(255,255,255,.4);position:relative}
+
+/* ── CONTENT ── */
+#content{max-width:780px;margin:0 auto;padding:0 48px 80px}
+
+/* ── SECTION ── */
+.section{padding-top:56px}
+.section-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font-title);font-size:10px;letter-spacing:2.5px;
+  text-transform:uppercase;color:var(--gold);margin-bottom:12px;
+}
+.section-tag::before{content:'';width:24px;height:1px;background:var(--gold);opacity:.5}
+.section-h{font-family:var(--font-title);font-size:20px;font-weight:500;color:var(--lapis-d);margin-bottom:24px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+
+/* ── VERSE BLOCK ── */
+.verse{margin-bottom:32px}
+.verse-inner{
+  background:var(--parchment);border-radius:4px;
+  border-left:3px solid var(--border-g);overflow:hidden;
+}
+.lang-row{padding:16px 24px;border-bottom:1px solid rgba(0,0,0,.06)}
+.lang-row:last-child{border-bottom:none}
+.lang-row.tib{font-family:var(--font-tib);font-size:15px;color:var(--lapis-d);line-height:2.4;background:rgba(26,74,122,.04)}
+.lang-row.phon{font-size:14.5px;color:var(--ink-m);font-style:italic;line-height:1.9;background:rgba(255,255,255,.5)}
+.lang-row.eng{font-size:16px;color:var(--ink);line-height:1.8}
+.lang-row.zh{font-size:15px;color:var(--ink-m);line-height:1.9;background:rgba(184,134,11,.03)}
+.lang-label{display:block;font-family:var(--font-title);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-l);margin-bottom:6px;opacity:.7}
+
+/* hide/show layers */
+body.hide-tib .lang-row.tib{display:none}
+body.hide-phon .lang-row.phon{display:none}
+body.hide-eng .lang-row.eng{display:none}
+body.hide-zh .lang-row.zh{display:none}
+
+/* ── MANTRA BLOCK ── */
+.mantra-block{margin:28px 0;border:1px solid var(--border-g);border-radius:6px;overflow:hidden}
+.mantra-hd{background:var(--lapis-d);padding:10px 20px;display:flex;align-items:center;gap:12px}
+.mantra-tag{font-family:var(--font-title);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-l)}
+.mantra-tib-sm{font-family:var(--font-tib);font-size:11px;color:rgba(255,255,255,.35)}
+.mantra-body{background:#081a30;padding:20px 24px}
+.mantra-line{font-family:var(--font-serif);font-style:italic;font-size:16px;color:#c0d8f5;line-height:2.1;letter-spacing:.3px}
+.mantra-line b{color:var(--gold-bright);font-style:normal;font-weight:500}
+.mantra-zh{margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.07);font-size:13px;color:rgba(255,255,255,.35);line-height:1.9}
+.mantra-note{margin-top:8px;font-size:13px;color:rgba(255,255,255,.25);font-style:italic}
+
+/* ── NOTE BOX ── */
+.note-box{
+  margin:24px 0;padding:18px 22px;
+  background:rgba(184,134,11,.07);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;font-size:15px;color:var(--ink-m);font-style:italic;
+}
+
+/* ── HOMAGE ROW ── */
+.homage-item{
+  margin-bottom:20px;border:1px solid var(--border);border-radius:4px;overflow:hidden;
+}
+.homage-num{
+  background:var(--lapis-d);color:var(--gold-l);font-family:var(--font-title);
+  font-size:10px;letter-spacing:1px;padding:6px 16px;
+}
+.homage-body{padding:14px 20px 14px;background:var(--parchment)}
+.homage-tib{font-family:var(--font-tib);font-size:13px;color:var(--lapis);line-height:2.3;margin-bottom:8px}
+.homage-phon{font-size:14px;font-style:italic;color:var(--ink-m);margin-bottom:8px;line-height:1.7}
+.homage-eng{font-size:15px;color:var(--ink);margin-bottom:8px;line-height:1.65}
+.homage-zh{font-size:14px;color:var(--ink-m)}
+
+/* ── COLOPHON ── */
+.colophon{
+  margin-top:48px;padding:32px 36px;background:var(--lapis-d);border-radius:4px;
+  font-size:15px;color:rgba(255,255,255,.7);line-height:1.9;
+}
+.colophon p+p{margin-top:12px}
+.colophon strong{color:var(--gold-l);font-weight:500}
+
+/* ── CLOSING ── */
+.closing{padding:64px 0 32px;text-align:center}
+.closing-tib{font-family:var(--font-tib);font-size:14px;color:var(--ink-l);line-height:2.4;margin-bottom:20px}
+.closing-eng{font-family:var(--font-serif);font-style:italic;font-size:18px;color:var(--lapis-d);line-height:1.75;margin-bottom:14px}
+.closing-zh{font-size:14px;color:var(--ink-l);line-height:1.9;margin-bottom:32px}
+.sarva{font-family:var(--font-title);font-size:12px;letter-spacing:4px;color:var(--gold);opacity:.8}
+
+/* ── DIVIDER ── */
+.div-orn{text-align:center;margin:40px 0;color:var(--gold-l);opacity:.5;font-size:18px;letter-spacing:8px}
+
+/* ── PROGRESS BAR ── */
+#progress{position:fixed;top:0;left:260px;right:0;height:2px;background:var(--gold);transform-origin:left;transform:scaleX(0);z-index:100;transition:transform .1s}
+
+/* ── SCROLL TOP ── */
+#top-btn{
+  position:fixed;bottom:32px;right:32px;width:44px;height:44px;
+  background:var(--lapis-d);border:1px solid rgba(255,255,255,.15);border-radius:50%;
+  color:#fff;font-size:18px;cursor:pointer;display:none;align-items:center;justify-content:center;
+  z-index:150;text-decoration:none;
+}
+
+@media(max-width:900px){
+  #nav{transform:translateX(-100%)}
+  #nav.open{transform:translateX(0)}
+  #main{margin-left:0}
+  #progress{left:0}
+  #menu-btn{display:flex}
+  #content{padding:0 24px 60px}
+  #hero{padding:56px 28px 44px}
+}
+@media print{
+  #nav,#menu-btn,#progress,#top-btn{display:none!important}
+  #main{margin-left:0}
+  .verse-inner{border:1px solid #ccc;break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<nav id="nav">
+  <div id="nav-header">
+    <div id="nav-title">Medicine Buddha Puja</div>
+    <div id="nav-sub">Full liturgy · 4 languages</div>
+    <div id="lang-toggle">
+      <button class="ltog on" data-lang="tib">དབུ་ཅན་</button>
+      <button class="ltog on" data-lang="phon">Phon</button>
+      <button class="ltog on" data-lang="eng">Eng</button>
+      <button class="ltog on" data-lang="zh">中文</button>
+    </div>
+  </div>
+  <ul>
+    <li><a href="#opening"><span class="num">—</span>Opening Homage</a></li>
+    <li><a href="#refuge"><span class="num">01</span>Refuge &amp; Bodhicitta</a></li>
+    <li><a href="#purification"><span class="num">02</span>Purification</a></li>
+    <li><a href="#invitation"><span class="num">03</span>Invitation</a></li>
+    <li><a href="#homages"><span class="num">04</span>Eight Homages</a></li>
+    <li><a href="#offering"><span class="num">05</span>Sevenfold Offering</a></li>
+    <li><a href="#aspiration"><span class="num">06</span>Aspiration Verses</a></li>
+    <li><a href="#mantras"><span class="num">07</span>Sacred Mantras</a></li>
+    <li><a href="#practice-note"><span class="num">08</span>Practice Note</a></li>
+    <li><a href="#apology"><span class="num">09</span>Apology Verse</a></li>
+    <li><a href="#stability"><span class="num">10</span>Stability Prayer</a></li>
+    <li><a href="#dedication"><span class="num">11</span>Dedication</a></li>
+    <li><a href="#dissolution"><span class="num">12</span>Dissolution</a></li>
+    <li><a href="#auspicious"><span class="num">13</span>Auspicious Verses</a></li>
+    <li><a href="#beings"><span class="num">14</span>Prayers for Beings</a></li>
+    <li><a href="#colophon"><span class="num">—</span>Colophon</a></li>
+  </ul>
+</nav>
+
+<button id="menu-btn" onclick="document.getElementById('nav').classList.toggle('open')" aria-label="Toggle menu">
+  <span></span><span></span><span></span>
+</button>
+
+<div id="progress"></div>
+
+<!-- MAIN -->
+<div id="main">
+
+<!-- HERO -->
+<div id="hero">
+  <div class="hero-ornament">Sacred Liturgical Text · Sakya Tradition</div>
+  <div class="hero-tib">༄༅། །སྨན་བླ་བདེ་གཤེགས་བརྒྱད་ཀྱི་མཆོད་པའི་ཕྱིའི་རེ་སྨོན་ཀུན་འགྲུབ་ཅེས་བྱ་བའི་ཆོ་གའི་སྙིང་པོ་བཞུགས་སོ།།</div>
+  <h1 class="hero-h1">The Quintessence of the Ritual of Offerings<br>to the Eight Medicine Sugatas</h1>
+  <div class="hero-sub">"The Outer Aspiration That Fulfills All Wishes"</div>
+  <div class="hero-zh">《藥師八佛供養儀軌精要——外祈願成就一切》</div>
+</div>
+
+<div id="content">
+
+<!-- ══════════════════════════════════ -->
+<!-- OPENING HOMAGE -->
+<!-- ══════════════════════════════════ -->
+<section class="section" id="opening">
+  <div class="section-tag">Opening</div>
+  <h2 class="section-h">Opening Homage</h2>
+
+  <div class="verse">
+    <div class="verse-inner">
+      <div class="lang-row tib"><span class="lang-label">Tibetan</span>ན་མོཿགུ་རུ་སརྦ་བྷ་ག་ཝཱན་ཏ་ཐཱ་ག་ཏ་ཨརྷ་ཏེ་སམྱཀྶཾ་བུདྡྷེ་བྷྱཿ</div>
+      <div class="lang-row phon"><span class="lang-label">Phonetic</span>Namo guru sarva bhagavanta tathāgata arhate samyaksaṃbuddhe bhyaḥ</div>
+      <div class="lang-row eng"><span class="lang-label">English</span>Homage to the Guru, all Blessed Ones, Tathāgatas, Arhats, Perfectly Accomplished Buddhas!</div>
+      <div class="lang-row zh"><span class="lang-label">中文</span>頂禮上師、一切出有壞、如來、應供、正等覺！</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ -->
+<!-- REFUGE & BODHICITTA -->
+<!-- ══════════════════════════════════ -->
+<section class="section" id="refuge">
+  <div class="section-tag">01</div>
+  <h2 class="section-h">Refuge &amp; Bodhicitta</h2>
+
+  <div class="verse">
+    <div class="verse-inner">
+      <div class="lang-row tib"><span class="lang-label">Tibetan</span>བདག་དང་འགྲོ་བ་ཁམས་གསུམ་ནམ་མཁའ་ཡི།<br>མཐའ་དང་མཉམ་པའི་སེམས་ཅན་མ་ལུས་པ།<br>དུས་འདི་ནས་བཟུང་བྱང་ཆུབ་མ་ཐོབ་བར།<br>བླ་མ་སངས་རྒྱས་ཆོས་དང་དགེ་འདུན་ལ།<br>དངོས་འདོད་ཡིད་ཆེས་སྒོམ་ནས་སྐྱབས་སུ་མཆི།</div>
+      <div class="lang-row phon"><span class="lang-label">Phonetic</span>Dak dang dro-wa kham sum nam-kha yi<br>Tha dang nyam-pay sem-chen ma-lü pa<br>Dü di nay zung chang-chub ma thob bar<br>La-ma sang-gyay chö dang gen-dün la<br>Ngö-dö yi-che gom nay kyab su chi</div>
+      <div class="lang-row eng"><span class="lang-label">English</span>I and all beings who fill the three realms of existence,<br>Equaling the limits of space, without exception —<br>From this moment until enlightenment is reached —<br>To the Guru, the Buddha, the Dharma, and the Sangha,<br>With real, trusting faith I go for refuge.</div>
+      <div class="lang-row zh"><span class="lang-label">中文</span>我與諸有情，等虛空際盡，<br>從今至菩提，<br>皈依上師佛法僧，<br>以真實信解心修皈依。</div>
+    </div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-inner">
+      <div class="lang-row tib"><span class="lang-label">Tibetan</span>ཆོས་རྣམས་ཐམས་ཅད་སྟོང་ཞིང་བདག་མེད་པ།<br>ཡིན་ཀྱང་དེ་ལྟར་མ་རྟོགས་སེམས་ཅན་རྣམས།<br>བདེ་དང་ལྡན་གྱུར་སྡུག་བསྔལ་དང་བྲལ་ཞིང་།<br>བདེ་དང་མི་འབྲལ་བཏང་སྙམས་གནས་པར་ཤོག<br>སེམས་ཅན་དོན་དུ་སངས་རྒྱས་ཐོབ་པར་བྱ།<br>དེ་ཡི་ཆེད་དུ་བདེ་གཤེགས་འཁོར་བཅས་ལ།<br>གུས་པས་ཕྱག་འཚལ་མཆོད་པ་འབུལ་བ་དང་།<br>སྨོན་ལམ་ཁྱད་པར་ཅན་རྣམས་གདབ་པར་བགྱི།</div>
+      <div class="lang-row phon"><span class="lang-label">Phonetic</span>Chö nam tam-che tong shing dak me pa<br>Yin kyang de-tar ma tok sem-chen nam<br>De dang den gyur duk-ngal dang drel shing<br>De dang mi-drel tang nyam nay par shok<br>Sem-chen dön du sang-gyay thob par ja<br>De yi che-du de-shek khor che la<br>Gü-pay chak-tsal chö-pa bul-wa dang<br>Mön-lam khyay-par-chen nam dab par gyi</div>
+      <div class="lang-row eng"><span class="lang-label">English</span>Though all phenomena are empty and selfless,<br>Sentient beings fail to realize this;<br>May they possess happiness and be free from suffering,<br>May they never be separated from happiness.<br>For the sake of sentient beings, I shall attain Buddhahood;<br>For that purpose, to the Sugatas and their retinues<br>I shall pay homage, make offerings,<br>And generate these extraordinary aspirations.</div>
+      <div class="lang-row zh"><span class="lang-label">中文</span>諸法自性空，眾生未證此，<br>願彼得安樂，永離諸痛苦，<br>永不離安樂，如是而住願；<br>為利眾生故，我當成佛道，<br>以此故，於善逝及其眷屬，<br>恭敬禮拜，供養並發殊勝願。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ -->
+<!-- PURIFICATION -->
+<!-- ══════════════════════════════════ -->
+<section class="section" id="purification">
+  <div class="section-tag">02</div>
+  <h2 class="section-h">Purification of the Environment</h2>
+  <div class="verse">
+    <div class="verse-inner">
+      <div class="lang-row tib"><span class="lang-label">Tibetan</span>སྐྱབས་གསུམ་བདེན་དང་ཆོས་དབྱིངས་དག་པའི་མཐུས།<br>གནས་འདིར་རྣམ་དག་ཞིང་མཆོག་ཉིད་གྱུར་ཏེ།<br>ཁང་བཟང་ཁྲི་དང་པདྨའི་གདན་དག་དང་།<br>མ་ཚང་མེད་པའི་མཆོད་པས་མཛེས་གྱུར་ཅིག</div>
+      <div class="lang-row phon"><span class="lang-label">Phonetic</span>Kyab sum den dang chö-ying dak-pay thü<br>Nä dir nam-dak shing chok nyi gyur te<br>Khang zang tri dang pe-may den dak dang<br>Ma-tsang me-pay chö-pay dzay gyur chik</div>
+      <div class="lang-row eng"><span class="lang-label">English</span>By the power of the truth of the Three Jewels and the pure dharmadhātu,<br>May this place become a perfectly pure supreme buddha-field,<br>Complete with beautiful mansions, thrones, and lotus seats,<br>Adorned with flawless offerings.</div>
+      <div class="lang-row zh"><span class="lang-label">中文</span>以三寶真實力，暨法界清淨力，<br>願此處轉成淨土最勝境，<br>美宅獅座蓮花座等具，<br>無缺供養悉莊嚴。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ -->
+<!-- INVITATION -->
+<!-- ══════════════════════════════════ -->
+<section class="section" id="invitation">
+  <div class="section-tag">03</div>
+  <h2 class="section-h">Invitation</h2>
+  <div class="verse">
+    <div class="verse-inner">
+      <div class="lang-row tib"><span class="lang-label">Tibetan</span>ཤར་ཕྱོགས་རྣམ་དག་ཞིང་གི་རྒྱལ་བ་བདུན།<br>མི་མཇེད་འདྲེན་པ་སྐྱོབ་པ་ཤཱཀྱའི་ཏོག<br>ཀུན་ཀྱང་རྒྱལ་སྲས་རྒྱ་མཚོའི་འཁོར་དང་བཅས།<br>སྤྱན་འདྲེན་མཆོད་པའི་གནས་འདིར་གཤེགས་སུ་གསོལ།</div>
+      <div class="lang-row phon"><span class="lang-label">Phonetic</span>Shar chok nam-dak shing gi gyal-wa dün<br>Mi-je dren-pa kyob-pa shak-ya tok<br>Kün kyang gyal-say gya-tsho khor dang che<br>Chen-dren chö-pay ne dir shek su sol</div>
+      <div class="lang-row eng"><span class="lang-label">English</span>The seven Victors of the eastern pure realm,<br>And the protector of this Jambudvīpa, the Crown of the Śākyas,<br>All accompanied by oceans of bodhisattva heirs —<br>Please come to this place of offering.</div>
+      <div class="lang-row zh"><span class="lang-label">中文</span>東方淨土七如來，<br>能仁導師釋迦尊，<br>咸與菩薩海眾俱，<br>祈降此供養勝處。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ -->
+<!-- EIGHT HOMAGES -->
+<!-- ══════════════════════════════════ -->
+<section class="section" id="homages">
+  <div class="section-tag">04</div>
+  <h2 class="section-h">Homages to the Eight Medicine Buddhas</h2>
+
+  <div class="homage-item">
+    <div class="homage-num">BUDDHA I · 善名稱吉祥王佛</div>
+    <div class="homage-body">
+      <div class="homage-tib">བཅོམ་ལྡན་འདས་དེ་བཞིན་གཤེགས་པ་དགྲ་བཅོམ་པ་ཡང་དག་པར་རྫོགས་པའི་སངས་རྒྱས་མཚན་ལེགས་པར་ཡོངས་བསྒྲགས་དཔལ་གྱི་རྒྱལ་པོ་ལ་ཕྱག་འཚལ་ལོ། །མཆོད་དོ་སྐྱབས་སུ་མཆིའོ།</div>
+      <div class="homage-phon">Chom-den-day de-zhin shek-pa dra-chom-pa yang-dak-par dzok-pay sang-gyay tsen lek-par yong-drak pal gyi gyal-po la chak-tsal lo / chö do / kyab su chi-o</div>
+      <div class="homage-eng">To the Blessed One, the Tathāgata, Arhat, Perfectly Accomplished Buddha, the King of Glory Who Perfectly Proclaims the Excellent Name — I pay homage, make offerings, and go for refuge.</div>
+      <div class="homage-zh">頂禮、供養、皈依，出有壞、如來、應供、正等覺，善名稱吉祥王佛。</div>
+    </div>
+  </div>
+
+  <div class="homage-item">
+    <div class="homage-num">BUDDHA II · 寶月蓮華智嚴威音王佛</div>
+    <div class="homage-body">
+      <div class="homage-tib">བཅོམ་ལྡན་འདས་དེ་བཞིན་གཤེགས་པ་རིན་པོ་ཆེ་དང་ཟླ་བ་དང་པདྨས་རབ་ཏུ་བརྒྱན་པ་མཁས་པ་གཟི་བརྗིད་སྒྲ་དབྱངས་ཀྱི་རྒྱལ་པོ་ལ་ཕྱག་འཚལ་ལོ། །མཆོད་དོ་སྐྱབས་སུ་མཆིའོ།</div>
+      <div class="homage-phon">Chom-den-day de-zhin shek-pa rin-po-che dang da-wa dang pe-may rab-tu gyen-pa khe-pa zi-jik dra-yang kyi gyal-po la chak-tsal lo / chö do / kyab su chi-o</div>
+      <div class="homage-eng">To the Blessed One, the Tathāgata, Arhat, Perfectly Accomplished Buddha, King of Melodious Sound and Brilliant Splendor, Well Adorned with Jewels, Moon, and Lotus — I pay homage, make offerings, and go for refuge.</div>
+      <div class="homage-zh">頂禮、供養、皈依，出有壞、如來、應供、正等覺，寶月蓮華智嚴威音王佛。</div>
+    </div>
+  </div>
+
+  <div class="homage-item">
+    <div class="homage-num">BUDDHA III · 金色無垢寶光妙行成就佛</div>
+    <div class="homage-body">
+      <div class="homage-tib">བཅོམ་ལྡན་འདས་དེ་བཞིན་གཤེགས་པ་གསེར་བཟང་དྲི་མེད་རིན་ཆེན་སྣང་བ་བརྟུལ་ཞུགས་གྲུབ་པ་ལ་ཕྱག་འཚལ་ལོ། །མཆོད་དོ་སྐྱབས་སུ་མཆིའོ།</div>
+      <div class="homage-phon">Chom-den-day de-zhin shek-pa ser-zang dri-me rin-chen nang-wa tul-zhuk drub-pa la chak-tsal lo / chö do / kyab su chi-o</div>
+      <div class="homage-eng">To the Blessed One, the Tathāgata, Arhat, Perfectly Accomplished Buddha, Accomplished in Discipline, Immaculate Fine Gold Radiant Jewel Light — I pay homage, make offerings, and go for refuge.</div>
+      <div class="homage-zh">頂禮、供養、皈依，出有壞、如來、應供、正等覺，金色無垢寶光妙行成就佛。</div>
+    </div>
+  </div>
+
+  <div class="homage-item">
+    <div class="homage-num">BUDDHA IV · 無憂最勝吉祥佛</div>
+    <div class="homage-body">
+      <div class="homage-tib">བཅོམ་ལྡན་འདས་དེ་བཞིན་གཤེགས་པ་མྱ་ངན་མེད་མཆོག་དཔལ་ལ་ཕྱག་འཚལ་ལོ། །མཆོད་དོ་སྐྱབས་སུ་མཆིའོ།</div>
+      <div class="homage-phon">Chom-den-day de-zhin shek-pa nya-ngen me chok pal la chak-tsal lo / chö do / kyab su chi-o</div>
+      <div class="homage-eng">To the Blessed One, the Tathāgata, Arhat, Perfectly Accomplished Buddha, Supreme Glory Free from Sorrow — I pay homage, make offerings, and go for refuge.</div>
+      <div class="homage-zh">頂禮、供養、皈依，出有壞、如來、應供、正等覺，無憂最勝吉祥佛。</div>
+    </div>
+  </div>
+
+  <div class="homage-item">
+    <div class="homage-num">BUDDHA V · 法海雷音佛</div>
+    <div class="homage-body">
+      <div class="homage-tib">བཅོམ་ལྡན་འདས་དེ་བཞིན་གཤེགས་པ་ཆོས་བསྒྲགས་རྒྱ་མཚོའི་དབྱངས་ལ་ཕྱག་འཚལ་ལོ། །མཆོད་དོ་སྐྱབས་སུ་མཆིའོ།</div>
+      <div class="homage-phon">Chom-den-day de-zhin shek-pa chö-drak gya-tsho yi yang la chak-tsal lo / chö do / kyab su chi-o</div>
+      <div class="homage-eng">To the Blessed One, the Tathāgata, Arhat, Perfectly Accomplished Buddha, Melody of the Ocean of Proclaimed Dharma — I pay homage, make offerings, and go for refuge.</div>
+      <div class="homage-zh">頂禮、供養、皈依，出有壞、如來、應供、正等覺，法海雷音佛。</div>
+    </div>
+  </div>
+
+  <div class="homage-item">
+    <div class="homage-num">BUDDHA VI · 法海勝慧遊戲神通佛</div>
+    <div class="homage-body">
+      <div class="homage-tib">བཅོམ་ལྡན་འདས་དེ་བཞིན་གཤེགས་པ་ཆོས་རྒྱ་མཚོ་མཆོག་གི་བློས་རྣམ་པར་རོལ་བ་མངོན་པར་མཁྱེན་པའི་རྒྱལ་པོ་ལ་ཕྱག་འཚལ་ལོ། །མཆོད་དོ་སྐྱབས་སུ་མཆིའོ།</div>
+      <div class="homage-phon">Chom-den-day de-zhin shek-pa chö gya-tsho chok gi lö nam-par rol-wa ngön-par khyen-pay gyal-po la chak-tsal lo / chö do / kyab su chi-o</div>
+      <div class="homage-eng">To the Blessed One, the Tathāgata, Arhat, Perfectly Accomplished Buddha, King of Clear Knowing Who Enjoys the Supreme Wisdom of the Dharma Ocean — I pay homage, make offerings, and go for refuge.</div>
+      <div class="homage-zh">頂禮、供養、皈依，出有壞、如來、應供、正等覺，法海勝慧遊戲神通佛。</div>
+    </div>
+  </div>
+
+  <div class="homage-item" style="border-color:var(--border-g);border-width:2px">
+    <div class="homage-num" style="background:linear-gradient(90deg,#0d2d4f,#1a4a7a)">BUDDHA VII · 藥師琉璃光王佛 · Principal Medicine Buddha ✦</div>
+    <div class="homage-body" style="background:var(--lapis-pale)">
+      <div class="homage-tib">བཅོམ་ལྡན་འདས་དེ་བཞིན་གཤེགས་པ་སྨན་གྱི་བླ་བཻཌཱུརྱའི་འོད་ཀྱི་རྒྱལ་པོ་ལ་ཕྱག་འཚལ་ལོ། །མཆོད་དོ་སྐྱབས་སུ་མཆིའོ།</div>
+      <div class="homage-phon">Chom-den-day de-zhin shek-pa men-gyi la be-durya yi ö kyi gyal-po la chak-tsal lo / chö do / kyab su chi-o</div>
+      <div class="homage-eng">To the Blessed One, the Tathāgata, Arhat, Perfectly Accomplished Buddha, King of Lapis Lazuli Light, the Supreme Physician — I pay homage, make offerings, and go for refuge.</div>
+      <div class="homage-zh">頂禮、供養、皈依，出有壞、如來、應供、正等覺，藥師琉璃光王佛。</div>
+    </div>
+  </div>
+
+  <div class="homage-item">
+    <div class="homage-num">BUDDHA VIII · 釋迦牟尼佛</div>
+    <div class="homage-body">
+      <div class="homage-tib">སྟོན་པ་བཅོམ་ལྡན་འདས་དེ་བཞིན་གཤེགས་པ་དགྲ་བཅོམ་པ་ཡང་དག་པར་རྫོགས་པའི་སངས་རྒྱས་ཤཱཀྱ་ཐུབ་པ་འཁོར་བྱང་ཆུབ་སེམས་དཔའ་སུམ་ཁྲི་དྲུག་སྟོང་དང་བཅས་པ་ལ་ཕྱག་འཚལ་ལོ། །མཆོད་དོ་སྐྱབས་སུ་མཆིའོ།</div>
+      <div class="homage-phon">Tön-pa chom-den-day de-zhin shek-pa dra-chom-pa yang-dak-par dzok-pay sang-gyay shak-ya thub-pa khor chang-chub sem-pa sum-tri druk-tong dang che-pa la chak-tsal lo / chö do / kyab su chi-o</div>
+      <div class="homage-eng">To the Teacher, the Blessed One, the Tathāgata, Arhat, Perfectly Accomplished Buddha, the Śākya Sage, together with his retinue of thirty-six thousand bodhisattvas — I pay homage, make offerings, and go for refuge.</div>
+      <div class="homage-zh">頂禮、供養、皈依，導師出有壞、如來、應供、正等覺釋迦牟尼佛，及三萬六千菩薩眷屬俱。</div>
+    </div>
+  </div>
+
+  <div class="div-orn">· · ✦ · ·</div>
+
+  <div class="verse">
+    <div class="verse-inner">
+      <div class="lang-row tib"><span class="lang-label">Tibetan</span>དེ་བཞིན་གཤེགས་པ་བདུན་གྱི་སྨོན་ལམ་གྱི་ཁྱད་པར་རྒྱས་པའི་མདོ་སྡེ་རིན་པོ་ཆེ་ལ་ཕྱག་འཚལ་ལོ།<br>བྱང་ཆུབ་སེམས་དཔའ་འཕགས་པ་འཇམ་དཔལ་གཞོན་ནུར་གྱུར་པ་ལ་ཕྱག་འཚལ་ལོ།<br>བྱང་ཆུབ་སེམས་དཔའ་ཆེན་པོ་འཕགས་པ་སྐྱབས་གྲོལ་ལ་ཕྱག་འཚལ་ལོ།<br>བྱང་ཆུབ་སེམས་དཔའ་ཆེན་པོ་ཕྱག་ན་རྡོ་རྗེ་ལ་ཕྱག་འཚལ་ལོ།<br>ཚངས་པ་དང་བརྒྱ་བྱིན་དང་རྒྱལ་པོ་ཆེན་པོ་བཞི་ལ་སོགས་པ་དམ་པའི་ཆོས་སྐྱོང་བའི་དགེ་བསྙེན་ཐམས་ཅད་ལ་ཕྱག་འཚལ་ལོ།<br>མཐུ་དཔལ་དང་ལྡན་པའི་དགེ་བསྙེན་གནོད་སྦྱིན་གྱི་སྡེ་དཔོན་ཆེན་པོ་བཅུ་གཉིས་པོ་རེ་རེ་ལ་ཡང་གཡོག་འཁོར་གནོད་སྦྱིན་བདུན་འབུམ་བདུན་འབུམ་དང་བཅས་པ་ལ་ཕྱག་འཚལ་ལོ།</div>
+      <div class="lang-row phon"><span class="lang-label">Phonetic</span>De-zhin shek-pa dün gyi mön-lam gyi khyay-par gyay-pay do-de rin-po-che la chak-tsal lo<br>Chang-chub sem-pa pak-pa jam-pal zhön-nur gyur-pa la chak-tsal lo<br>Chang-chub sem-pa chen-po pak-pa kyab-drol la chak-tsal lo<br>Chang-chub sem-pa chen-po chak-na dor-je la chak-tsal lo<br>Tsang-pa dang gya-jin dang gyal-po chen-po zhi la sok-pa dam-pay chö kyong-way ge-nyen tam-che la chak-tsal lo<br>Thu-pal dang den-pay ge-nyen nö-jin kyi de-pön chen-po chu-nyi po re-re la yang yok-khor nö-jin dün-bum dün-bum dang che-pa la chak-tsal lo</div>
+      <div class="lang-row eng"><span class="lang-label">English</span>To the precious sūtra that elaborately sets forth the extraordinary aspirations of the Seven Tathāgatas, I pay homage.<br>To the noble Bodhisattva Mañjuśrī, appearing as a youth, I pay homage.<br>To the great noble Bodhisattva Avalokiteśvara, I pay homage.<br>To the great Bodhisattva Vajrapāṇi, I pay homage.<br>To Brahmā, Indra, the Four Great Kings, and all virtuous lay protectors of the holy Dharma, I pay homage.<br>To each of the twelve great yakṣa generals, glorious and empowered, together with their respective retinues of seven thousand yakṣas, I pay homage.</div>
+      <div class="lang-row zh"><span class="lang-label">中文</span>頂禮七佛殊勝願力廣說之大寶經藏。<br>頂禮聖者文殊師利童子菩薩。<br>頂禮大聖觀世音菩薩。<br>頂禮大力金剛手菩薩。<br>頂禮梵天、帝釋、四大天王等護持正法之一切善居士。<br>頂禮具威光之十二大夜叉將，及其各自眷屬七千夜叉。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ -->
+<!-- SEVENFOLD OFFERING -->
+<!-- ══════════════════════════════════ -->
+<section class="section" id="offering">
+  <div class="section-tag">05</div>
+  <h2 class="section-h">Sevenfold Offering</h2>
+  <div class="verse">
+    <div class="verse-inner">
+      <div class="lang-row tib"><span class="lang-label">Tibetan</span>འཕགས་པའི་ཚོགས་དེ་དག་ཐམས་ཅད་ལ་མཆོད་ཡོན་དང་བྱུག་པ། མེ་ཏོག་དང་བདུག་སྤོས། མར་མེ་དང་ཞལ་ཟས། རོལ་མོ་དང་སིལ་སྙན། གདུགས་དང་བ་དན་ལ་སོགས་དངོས་སུ་ཅི་འབྱོར་པ་འདི་དག་དང་།<br>ཕྱོགས་བཅུར་བདག་པོས་ཡོངས་སུ་མ་བཟུང་བའི་ལྷ་དང་མིའི་རྫས་དམ་པ་བདེ་བའི་ཡོ་བྱད་ཕུན་སུམ་ཚོགས་པ་ཐམས་ཅད་དང་།<br>གཟུངས་དང་རིག་པའི་མཐུ་དང་མོས་པའི་སྟབས་ཀྱིས་བསྐྱེད་པའི་མཆོད་པའི་སྤྲིན་བཟང་པོ་སྤྲོད་པའི་སྨོན་ལམ་ལས་བྱུང་བ་རྒྱ་མཚོ་ཐམས་ཅད་ཀྱིས་ནམ་མཁའི་མཐའ་ཀླས་པ་ཐམས་ཅད་རྒྱས་པར་བཀང་སྟེ་འབུལ་ལོ་མཆོད་དོ།<br>མིང་འདི་ཞེས་བགྱི་བ་དང་། བདག་ཅག་གི་ཐོག་མ་མ་མཆིས་པའི་འཁོར་བ་ནས་འཁོར་བའི་ཚེ་རབས་ཐམས་ཅད་དུ་སྡིག་པ་མི་དགེ་བའི་ལས་མདོར་ན་མི་བགྱི་བར་རིགས་པའི་ལས་ནི་བགྱིས། བགྱི་བར་འོས་པའི་ལས་ནི་མ་བགྱིས་པ་ལ་སོགས་པའི་དངོས་སྡིག་ཅི་མཆིས་པ་ཐམས་ཅད་ཡང་དག་པར་འཆགས་སོ།<br>དུས་གསུམ་གྱི་འཕགས་པ་དང་སོ་སོ་སྐྱེ་བོའི་དགེ་བ་མཐའ་དག་གི་བསོད་ནམས་ཐམས་ཅད་ལ་རྗེས་སུ་ཡི་རང་ངོ་།<br>ཕྱོགས་བཅུའི་རྒྱལ་བ་ཐམས་ཅད་ལ་ཆོས་ཀྱི་འཁོར་ལོ་བླ་ན་མེད་པར་བསྐོར་བར་བསྐུལ་ལོ།<br>འཇིག་རྟེན་གྱི་སྒོན་མ་གང་དག་མྱ་ངན་ལས་འདའ་བའི་ཚུལ་སྟོན་པར་བཞེད་པ་དེ་དག་ཐམས་ཅད་ལ་མྱ་ངན་ལས་མི་འདའ་བར་འཇིག་རྟེན་གྱི་དོན་མཛད་ཅིང་ཡུན་དུ་བཞུགས་པར་གསོལ་བར་འཚལ་ལོ།</div>
+      <div class="lang-row phon"><span class="lang-label">Phonetic</span>Pak-pay tsok de dak tam-che la chö yön dang juk-pa / me-tok dang duk-pö / mar-me dang shyal-say / rol-mo dang sil-nyen / duk dang ba-den la sok ngö-su chi jor-pa di-dak dang /<br>Chok chur dak-pö yong-su ma zung-way lha dang mi yi dzay dam-pa de-way yo-je pün-sum tsok-pa tam-che dang /<br>Zung dang rik-pay thu dang mö-pay tab kyi kyay-pay chö-pay trin zang-po tö-pay mön-lam lay jung-wa gya-tso tam-che kyi nam-khay tha le-pa tam-che gyay-par kang te bul-lo chö do /<br>Ming di zhay gyi-wa dang / [Your Name] dak-chak gi thok-ma ma chi-pay khor-wa nay … ngö-dik chi chi-pa tam-che yang-dak-par chak-so /<br>Dü-sum gyi pak-pa dang so-so kye-wo ge-way tha-dak gi sö-nam tam-che la je-su yi-rang ngo /<br>Chok-chu gyal-wa tam-che la chö kyi khor-lo la-na me-par kor-war kul-lo /<br>Jik-ten gyi gön-ma … yün-du zhuk-par sol-war tshal-lo</div>
+      <div class="lang-row eng"><span class="lang-label">English</span>To all those noble assemblies, I offer whatever is actually at hand — offering water, ointments, flowers, incense, lamps, food, music and cymbals, parasols and victory banners — and all the excellent divine and human substances not owned by anyone in the ten directions, perfect articles of happiness, together with oceans of sublime offering clouds generated through the power of dhāraṇī, awareness, and faith; I fill the whole infinity of space and offer them.<br><br><em>[Insert your name here]</em> — Whatever misdeeds I have committed throughout all my lives in beginningless cyclic existence, I openly confess them all.<br><br>I rejoice in all the merit of every virtuous action of the noble ones and ordinary beings of the three times.<br><br>I request all the Victors of the ten directions to turn the unsurpassed wheel of Dharma.<br><br>To all those guides of the world who display the manner of passing into nirvāṇa, I supplicate them not to pass away but to remain for a long time, working for the benefit of the world.</div>
+      <div class="lang-row zh"><span class="lang-label">中文</span>於彼聖眾海會，奉獻水、塗香、花、熏香、燈、食、樂器、蓋、幢等現前實物，以及十方無主之天人勝妙安樂資具，並依陀羅尼、明咒力及信解力所生之善妙供雲，遍滿虛空盡際而奉獻供養。<br><br>我等從無始輪迴以來，一切生中，惡不善業，所有罪墮，悉皆懺悔。<br><br>於三世聖凡一切善根福德，悉皆隨喜。<br><br>勸請十方一切如來轉無上法輪。<br><br>凡世間導師示現涅槃之相者，我皆祈請勿入涅槃，為利世間而長久住世。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ -->
+<!-- ASPIRATION VERSES -->
+<!-- ══════════════════════════════════ -->
+<section class="section" id="aspiration">
+  <div class="section-tag">06</div>
+  <h2 class="section-h">Aspiration Verses</h2>
+  <div class="verse">
+    <div class="verse-inner">
+      <div class="lang-row tib"><span class="lang-label">Tibetan</span>བདེ་གཤེགས་བདུན་གྱིས་རང་གི་མཚན་སྨོས་པའི།<br>ཕན་ཡོན་ཇི་སྙེད་སྨོན་ལམ་གྱིས་གྲུབ་པ།<br>དེ་དག་བདག་ལ་བདེ་བླག་འགྲུབ་གྱུར་ཅིག<br>རྣམ་དག་ཞིང་རྣམས་སུ་ཡང་སྐྱེ་བར་ཤོག<br>སྟོན་པ་ཤཱཀྱའི་གཙོ་བོས་མདོ་སྡེ་ལས།<br>ཇི་སྐད་གསུངས་པའི་ཕན་ཡོན་བྱིན་རླབས་ཀྱི།<br>བདེ་གཤེགས་གསུང་རབ་གཞན་དུ་མི་འགྱུར་བ།<br>དེ་ཡི་བདེན་པའང་བདག་ལ་མངོན་གྱུར་མཛོད།<br>འཇམ་དཔལ་སྐྱབས་གྲོལ་ཕྱག་ན་རྡོ་རྗེ་དང་།<br>ཚངས་ལ་སོགས་དང་གནོད་སྦྱིན་ཚོགས་རྣམས་ཀྱིས།<br>ཞལ་བཞེས་ཇི་ལྟའི་དགེ་ལེགས་ཇི་སྙེད་པ།<br>འཕྲལ་དང་ཡུན་དུ་བདག་ལ་འགྲུབ་པར་མཛོད།</div>
+      <div class="lang-row phon"><span class="lang-label">Phonetic</span>De-shek dün gyi rang-gi tsen mö-pay<br>Pen-yön ji-nye mön-lam gyi drub-pa<br>De-dak dak la de-lak drub gyur chik<br>Nam-dak shing nam su yang kye-war shok<br>Tön-pa shak-ya tso-wo do-de lay<br>Ji-ke sung-pay pen-yön jin-lab kyi<br>De-shek sung-rab zhen-du mi gyur-wa<br>De-yi den-pang dak la ngön gyur dzö<br>Jam-pal kyab-drol chak-na dor-je dang<br>Tsang la sok dang nö-jin tsok nam kyi<br>Zhal-zhe ji-tay ge-lek ji-nye pa<br>Tral dang yün-du dak la drub-par dzö</div>
+      <div class="lang-row eng"><span class="lang-label">English</span>Whatever benefits are stated by the Seven Sugatas through the mere mention of their names and are accomplished through their aspirations,<br>May those be easily accomplished for me;<br>And may I be born in their perfectly pure buddha-fields.<br>Just as the Teacher, the Lord of Śākyas, declared in the sūtras<br>The benefits and blessings of the Sugatas' sacred words,<br>May that true nature — unchanging and not otherwise —<br>Become evident to me.<br>By Mañjuśrī, Avalokiteśvara, Vajrapāṇi,<br>Brahmā, and the hosts of yakṣas,<br>Whatever extraordinary virtue they have pledged,<br>May it be accomplished for me, both temporarily and ultimately.</div>
+      <div class="lang-row zh"><span class="lang-label">中文</span>七如來僅聞名號之功德，如彼願力所成就一切利，願於我身亦輕易成辦，並願往生彼清淨剎土。<br>如釋迦導師於經中所說，善逝教法加持之功德，實無變異，願諦實力，於我亦得現前證。<br>文殊、觀音、金剛手，梵天等及夜叉眾，依彼等所承許之善妙，願於我亦暫久悉圓成。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ -->
+<!-- MANTRAS -->
+<!-- ══════════════════════════════════ -->
+<section class="section" id="mantras">
+  <div class="section-tag">07</div>
+  <h2 class="section-h">Sacred Mantras</h2>
+
+  <div class="note-box">Recite the long or short dhāraṇī as appropriate. Both may be recited as many times as one wishes. / 隨後，隨宜念誦長咒或短咒，可隨緣多誦。</div>
+
+  <div class="mantra-block">
+    <div class="mantra-hd">
+      <span class="mantra-tag">Long Dhāraṇī — སྔགས་རིང་</span>
+      <span class="mantra-tib-sm">ཨོཾ་ན་མོ་བྷ་ག་ཝ་ཏེ་བྷཻ་ཥ་ཛྱེ་གུ་རུ་བྷཻ་ཌཱུརྱ…</span>
+    </div>
+    <div class="mantra-body">
+      <div class="mantra-line" style="font-family:var(--font-tib);font-size:14px;font-style:normal;color:rgba(200,220,255,.55);margin-bottom:14px">ཨོཾ་ན་མོ་བྷ་ག་ཝ་ཏེ་བྷཻ་ཥ་ཛྱེ་གུ་རུ་བྷཻ་ཌཱུརྱ། པྲ་བྷ་རཱ ཛཱ་ཡ། ཏ་ཐཱ་ག་ཏཱ་ཡ། ཨརྷ་ཏེ་སམྱཀྶཾ་བུདྡྷཱ་ཡ། ཏདྱ་ཐཱ། ཨོཾ་བྷཻ་ཥ་ཛྱེ་བྷཻ་ཥ་ཛྱེ་མཧཱ་བྷཻ་ཥ་ཛྱེ། བྷཻ་ཥ་ཛྱེ་རཱ་ཛཱ་ས་མུདྒ་ཏེ་སྭཱ་ཧཱ།</div>
+      <div class="mantra-line"><b>OM</b> Namo Bhagavate Bhaiṣajyaguru Vaiḍūrya Prabhārājāya<br>Tathāgatāya Arhate Samyaksambuddhāya<br>Tadyathā: <b>OM Bhaiṣajye Bhaiṣajye Mahābhaiṣajye</b><br><b>Bhaiṣajyarāja Samudgate Svāhā</b></div>
+      <div class="mantra-zh">唵 南谟薄伽伐帝 鞞杀社窭噜薜琉璃钵喇婆喝啰阇也 怛他揭多也 阿罗诃帝 三藐三勃陀也<br>怛侄他 唵 鞞杀逝 鞞杀逝 摩诃鞞杀逝 鞞杀社 三没揭帝 莎诃。</div>
+    </div>
+  </div>
+
+  <div class="mantra-block">
+    <div class="mantra-hd">
+      <span class="mantra-tag">Short Dhāraṇī — སྔགས་ཐུང་</span>
+      <span class="mantra-tib-sm">ཏདྱ་ཐཱ། ཨོཾ་བྷཻ་ཥ་ཛྱེ་བྷཻ་ཥ་ཛྱེ…</span>
+    </div>
+    <div class="mantra-body">
+      <div class="mantra-line" style="font-family:var(--font-tib);font-size:14px;font-style:normal;color:rgba(200,220,255,.55);margin-bottom:14px">ཏདྱ་ཐཱ། ཨོཾ་བྷཻ་ཥ་ཛྱེ་བྷཻ་ཥ་ཛྱེ། མཧཱ་བྷཻ་ཥ་ཛྱེ། བྷཻ་ཥ་ཛྱེ་རཱ་ཛཱ་ས་མུདྒ་ཏེ་སྭཱ་ཧཱ།</div>
+      <div class="mantra-line">Tadyathā: <b>OM Bhaiṣajye Bhaiṣajye Mahābhaiṣajye</b><br><b>Bhaiṣajyarāja Samudgate Svāhā</b></div>
+      <div class="mantra-zh">怛侄他 唵 鞞杀逝 鞞杀逝 摩诃鞞杀逝 鞞杀社 三没揭帝 莎诃。</div>
+      <div class="mantra-note">Tadyathā: Oṃ bhaiṣajye bhaiṣajye, mahābhaiṣajye, rāja samudgate svāhā — It is thus: OM, Healing One, Healing One, Great Healing One, King of Healing, who has gone completely beyond — so be it!</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ -->
+<!-- PRACTICE NOTE -->
+<!-- ══════════════════════════════════ -->
+<section class="section" id="practice-note">
+  <div class="section-tag">08</div>
+  <h2 class="section-h">Practice Note</h2>
+  <div class="verse">
+    <div class="verse-inner">
+      <div class="lang-row tib"><span class="lang-label">Tibetan</span>འདི་ལྟར་བུའི་ཉམས་ལེན་ཞག་རེ་བཞིན་ཆག་མེད་དུ་བྱེད་པ་འདི་ལ་མདོ་ནས་བཤད་པའི་ཡོན་རྣམས་གདོན་མི་ཟ་བར་འབྱུང་ངེས་པས། ཡོན་ཏན་འདོད་པ་རྣམས་ཀྱིས་ཚིགས་ཆུང་ཞིང་དོན་ཆེ་བའི་ཟབ་མོའི་གནད་འདི་ལ་འབད་པར་བྱའོ།</div>
+      <div class="lang-row phon"><span class="lang-label">Phonetic</span>Di-tar bu-yi nyam-len zhag-re zhin chag-me du jey-pa di la do-ney shey-pāi phän-yön nam dön-mi za-war jung-ngey pä / Yön-tän dö-pa nam-kyi tshig-chung zhing dön-che-wāi zab-mōi nä di la bey-par ja-o</div>
+      <div class="lang-row eng"><span class="lang-label">English</span>By practicing in this way daily without interruption, the benefits taught in the sūtras will definitely arise without a doubt. Therefore, those who desire virtues and qualities should strive in this profound essential point, which is concise in words yet great in meaning.</div>
+      <div class="lang-row zh"><span class="lang-label">中文</span>每日如是不间断地修持此法，佛经中所说的功德利益必定无疑会生起。因此，凡欲获得功德利益者，皆应精勤于此言简意赅、意义深奥之关键法要。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ -->
+<!-- APOLOGY VERSE -->
+<!-- ══════════════════════════════════ -->
+<section class="section" id="apology">
+  <div class="section-tag">09</div>
+  <h2 class="section-h">Apology Verse</h2>
+  <div class="verse">
+    <div class="verse-inner">
+      <div class="lang-row tib"><span class="lang-label">Tibetan</span>མ་འབྱོར་པ་དང་ཉམས་པ་དང་། །གང་ཡང་བདག་རྨོངས་བློ་ཡིས་ནི། །བགྱིས་པ་དང་ནི་བགྱིད་སྩལ་བ། །དེ་ཀུན་མགོན་པོས་བཟོད་པར་མཛོད། །</div>
+      <div class="lang-row phon"><span class="lang-label">Phonetic</span>Ma-jor-pa dang nyam-pa dang<br>Gang-yang dag-mong lo-yi ni<br>Gyi-pa dang ni gyi-tsal wa<br>De-kün gōn-pō zōd-par dzōd</div>
+      <div class="lang-row eng"><span class="lang-label">English</span>Whatever was incomplete or degenerated, or whatever I, through my deluded mind, have done or caused to be done — may the Protector forgive it all.</div>
+      <div class="lang-row zh"><span class="lang-label">中文</span>凡资具不具足或有退失，以及一切因我愚痴之心所作、或教他作的过失，祈愿怙主尽皆宽恕包容。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ -->
+<!-- STABILITY PRAYER -->
+<!-- ══════════════════════════════════ -->
+<section class="section" id="stability">
+  <div class="section-tag">10</div>
+  <h2 class="section-h">Stability Prayer <span style="font-size:13px;font-weight:400;color:var(--ink-l);font-style:italic">(if a physical support is present)</span></h2>
+  <div class="verse">
+    <div class="verse-inner">
+      <div class="lang-row tib"><span class="lang-label">Tibetan</span>འདིར་ནི་གཟུགས་དང་ལྷན་ཅིག་ཏུ། །འགྲོ་བའི་དོན་དུ་བཞུགས་ནས་ཀྱང་། །ནད་མེད་ཚེ་དང་དབང་ཕྱུག་དང་། །མཆོག་རྣམས་ལེགས་པར་སྩལ་དུ་གསོལ། །ཨོཾ་སུ་པྲ་ཏིཥྛ་ཡེ་སྭཱཧཱ།</div>
+      <div class="lang-row phon"><span class="lang-label">Phonetic</span>Dir-ni zug-dang lhän-chik tu<br>Dro-wāi dōn-du zhuk-nä kyang<br>Nä-me tsher-dang wang-chuk dang<br>Chog-nam leg-par tsal-du gsol<br>OM SUPRATIṢṬHA VAYE SVĀHĀ</div>
+      <div class="lang-row eng"><span class="lang-label">English</span>Remaining here together with this form for the sake of all living beings, please perfectly bestow freedom from illness, long life, prosperity, and supreme attainments. <b>OM SUPRATIṢṬHA VAYE SVĀHĀ.</b></div>
+      <div class="lang-row zh"><span class="lang-label">中文</span>祈请安住于此圣像之中，为了利益一切有情众生，祈求赐予无病、长寿、自在以及诸种殊胜的悉地。唵 苏布拉底刹 莎诃。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ -->
+<!-- DEDICATION -->
+<!-- ══════════════════════════════════ -->
+<section class="section" id="dedication">
+  <div class="section-tag">11</div>
+  <h2 class="section-h">Dedication of Merit</h2>
+  <div class="verse">
+    <div class="verse-inner">
+      <div class="lang-row tib"><span class="lang-label">Tibetan</span>དགེ་བ་འདི་བའི་མྱུར་དུ་བདག །སྨན་བླས་རྒྱལ་པོ་འགྲུབ་གྱུར་ཅིག །འགྲོ་བ་གཅིག་ཀྱང་མ་ལུས་པ། །དེ་ཡི་ས་ལ་འགོད་པར་ཤོག །</div>
+      <div class="lang-row phon"><span class="lang-label">Phonetic</span>Ge-wa di-yi nyur-du dag<br>Män-lāi gyāl-po drup-gyur chik<br>Dro-wa chik-kyang ma-lü pa<br>De-yi sa-la gō-par shog</div>
+      <div class="lang-row eng"><span class="lang-label">English</span>By this merit, may I swiftly accomplish the state of the King of Medicine Deities, and may every single living being without exception be established in that state.</div>
+      <div class="lang-row zh"><span class="lang-label">中文</span>愿我以此修法功德，速疾成就药师佛果；令诸众生无一遗漏，悉皆安置于彼刹土。</div>
+    </div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-inner">
+      <div class="lang-row tib"><span class="lang-label">Tibetan</span>ཐུགས་རྗེས་ཀུན་ལ་སྙོམས་པའི་བཅོམ་ལྡན་འདས། །མཚན་ཙམ་ཐོས་པས་ངན་འགྲོའི་སྡུག་བསྔལ་སེལ། །དུག་གསུམ་ནད་སེལ་སངས་རྒྱས་སྨན་གྱི་བླ། །བཻ་ཌཱུརྱ་ཡི་འོད་ཀྱི་བཀྲ་ཤིས་ཤོག ། <em>(ཞེས་ཀྱིས་ནོངས་པ་བཟོད་པར་གསོལ།)</em></div>
+      <div class="lang-row phon"><span class="lang-label">Phonetic</span>Thug-je kūn-la nyom-pāi chom-dän-dä<br>Tshän-tsam thō-pä ngän-drōi dug-ngäl sel<br>Dug-sum nä-sel sang-gyä män-gyi la<br>Bai-dūr-ya-yi ö-kyi tra-shis shog<br><em>(Thus, request forgiveness for mistakes.)</em></div>
+      <div class="lang-row eng"><span class="lang-label">English</span>Bhagavan, who treats all with equal compassion, whose mere name clears away the suffering of lower realms, Medicine Buddha who clears away the illnesses of the three poisons — may there be the auspiciousness of the Lapis Lazuli light! <em>(Thus, request forgiveness for mistakes.)</em></div>
+      <div class="lang-row zh"><span class="lang-label">中文</span>悲心平等对待一切之薄伽梵，仅闻名号即除恶趣诸痛苦，消除三毒之病药师医王佛，愿现琉璃光芒恒常赐吉祥！<em>（如是请求宽恕过失。）</em></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ -->
+<!-- DISSOLUTION -->
+<!-- ══════════════════════════════════ -->
+<section class="section" id="dissolution">
+  <div class="section-tag">12</div>
+  <h2 class="section-h">Dissolution <span style="font-size:13px;font-weight:400;color:var(--ink-l);font-style:italic">(if no physical support)</span></h2>
+  <div class="verse">
+    <div class="verse-inner">
+      <div class="lang-row tib"><span class="lang-label">Tibetan</span>ཨོཾ་ཁྱེད་ཀྱིས་སེམས་ཅན་དོན་ཀུན་མཛད། །རྗེས་སུ་མཐུན་པའི་དངོས་གྲུབ་སྩོལ། །སངས་རྒྱས་ཡུལ་དུ་གཤེགས་ནས་ཀྱང་། །སླར་ཡང་འབྱོན་པར་མཛད་དུ་གསོལ། །ཨོཾ་བཛྲ་མུཿ <em>(ཡེ་ཤེས་པ་རྣམས་རང་བཞིན་གྱི་གནས་སུ་གཤེགས། ཞེས་གཤེགས་སུ་གསོལ།)</em></div>
+      <div class="lang-row phon"><span class="lang-label">Phonetic</span>OM KHYE-KYI SEM-CHÄN DÖN KŪN DZÄ<br>JE-SU THÜN-PÄI NGÖ-DRUP TSOL<br>SANG-GYÄ YUL-DU SHEG-NÄ KYANG<br>LAR-YANG JÖN-PAR DZÄ-DU GSOL<br><b>OM VAJRA MUḤ</b><br><em>(Ye-she-pa-nam rang-zhin-gyi nä-su sheg / zhe sheg-su gsol)</em></div>
+      <div class="lang-row eng"><span class="lang-label">English</span>OM! You have accomplished all welfare for sentient beings, please bestow appropriate siddhis. Even after returning to the Buddha realm, please return here again. <b>OM VAJRA MUḤ.</b> <em>(The wisdom beings return to their natural abode. Thus request them to depart. Then recite whatever dedication, aspiration, and auspicious prayers are appropriate.)</em></div>
+      <div class="lang-row zh"><span class="lang-label">中文</span>唵！您已圆满成办有情众一切利乐，祈请赐予相顺之悉地。即使您已返回诸佛刹土，亦祈请日后再次光临慈悲垂念。唵 班扎 穆！<em>（智慧尊者们返回各自天然本位。如是奉送。随后随缘做相应的回向、发愿与吉祥赞颂。）</em></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ -->
+<!-- AUSPICIOUS VERSES -->
+<!-- ══════════════════════════════════ -->
+<section class="section" id="auspicious">
+  <div class="section-tag">13</div>
+  <h2 class="section-h">Auspicious Verses</h2>
+
+  <div class="verse">
+    <div class="verse-inner">
+      <div class="lang-row tib"><span class="lang-label">Tibetan · Verse I</span>སྟོན་པ་འཇིག་རྟེན་ཁམས་སུ་བྱོན་པ་དང་། །བསྟན་པ་ཉི་འོད་བཞིན་དུ་གསལ་བ་དང་། །བསྟན་འཛིན་བུ་སློབ་དར་ཞིང་རྒྱས་པ་ཡི། །བསྟན་པ་ཡུན་རིང་གནས་པའི་བཀྲ་ཤིས་ཤོག</div>
+      <div class="lang-row phon"><span class="lang-label">Phonetic</span>Tön-pa jik-ten kham su jön-pa dang / Ten-pa nyi-ö zhin-du sal-wa dang / Ten-dzin bu-lob dar-shing gyay-pa yi / Ten-pa yün-ring nay-pay ta-shi shok</div>
+      <div class="lang-row eng"><span class="lang-label">English</span>The Teacher came into this world, the doctrine shines like sunlight, the upholders of the doctrine, disciples, flourish and spread — May there be the auspiciousness of the doctrine enduring long.</div>
+      <div class="lang-row zh"><span class="lang-label">中文</span>導師降臨此世間，教法如日光顯明，持教弟子咸興盛，願教法長久住世之吉祥。</div>
+    </div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-inner">
+      <div class="lang-row tib"><span class="lang-label">Tibetan · Verse II</span>བསྟན་པའི་དཔལ་གྱུར་བླ་མའི་ཞབས་པད་བརྟན། །བསྟན་འཛིན་སྐྱེས་བུས་ས་སྟེང་ཡོངས་ལ་ཁྱབ། །བསྟན་པའི་སྦྱིན་བདག་མངའ་ཐང་འབྱོར་པ་རྒྱས། །བསྟན་པ་ཡུན་རིང་གནས་པའི་བཀྲ་ཤིས་ཤོག</div>
+      <div class="lang-row phon"><span class="lang-label">Phonetic</span>Ten-pay pal-gyur la-may zhap-pe ten / Ten-dzin kye-bü sa-teng yong la khyab / Ten-pay jin-dak nga-thang jor-pa gyay / Ten-pa yün-ring nay-pay ta-shi shok</div>
+      <div class="lang-row eng"><span class="lang-label">English</span>May the feet of the glorious gurus of the doctrine be steadfast, may upholders of the doctrine pervade the entire earth, may the patrons of the doctrine increase in power and wealth — May there be the auspiciousness of the doctrine enduring long.</div>
+      <div class="lang-row zh"><span class="lang-label">中文</span>教法榮耀上師足蓮固，持教善士遍滿大地，教法施主權勢富饒增，願教法長久住世之吉祥。</div>
+    </div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-inner">
+      <div class="lang-row tib"><span class="lang-label">Tibetan · Verse III</span>བསོད་ནམས་རི་བོ་བཞིན་དུ་བརྟན་པ་དང་། །བརྒྱུད་འཛིན་ཉི་ཟླ་བཞིན་དུ་གསལ་བ་དང་། །སྙན་གྲགས་ནམ་མཁའ་བཞིན་དུ་ཁྱབ་གྱུར་པའི། །བཀྲ་ཤིས་དེས་ཀྱང་དེང་འདིར་བདེ་ལེགས་ཤོག</div>
+      <div class="lang-row phon"><span class="lang-label">Phonetic</span>Sö-nam ri-wo zhin-du ten-pa dang / Gyü-dzin nyi-da zhin-du sal-wa dang / Nyen-drak nam-kha zhin-du khyab-gyur-pay / Ta-shi de-kyang deng dir de-lek shok</div>
+      <div class="lang-row eng"><span class="lang-label">English</span>May merit be as stable as a mountain, may the lineage holders be as brilliant as sun and moon, may fame pervade like space — By such auspiciousness, may there be goodness here today.</div>
+      <div class="lang-row zh"><span class="lang-label">中文</span>福德如山穩固，持傳承者如日月明，美譽遍滿虛空，此吉祥願今此處善樂。</div>
+    </div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-inner">
+      <div class="lang-row tib"><span class="lang-label">Tibetan · Verse IV</span>བགེགས་རིགས་སྟོང་ཕྲག་བརྒྱད་ཅུ་ཞི་བ་དང་། །མི་མཐུན་གནོད་པའི་རྐྱེན་དང་བྲལ་བ་དང་། །མཐུན་པ་འགྲུབ་ཅིང་ཕུན་སུམ་ཚོགས་གྱུར་པའི། །བཀྲ་ཤིས་དེས་ཀྱང་དེང་འདིར་བདེ་ལེགས་ཤོག</div>
+      <div class="lang-row phon"><span class="lang-label">Phonetic</span>Gek-rik tong-trak gye-chu zhi-wa dang / Mi-thün nö-pay kyen dang drel-wa dang / Thün-pa drub-ching pün-sum tsok-gyur-pay / Ta-shi de-kyang deng dir de-lek shok</div>
+      <div class="lang-row eng"><span class="lang-label">English</span>May the eighty thousand classes of obstructing spirits be pacified, may we be free from adverse and harmful conditions, may favorable conditions be accomplished and perfect — By such auspiciousness, may there be goodness here today.</div>
+      <div class="lang-row zh"><span class="lang-label">中文</span>八千魔障類咸息，遠離違緣與害緣，順緣成辦悉圓滿，此吉祥願今此處善樂。</div>
+    </div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-inner">
+      <div class="lang-row tib"><span class="lang-label">Tibetan · Verse V</span>ལོ་བརྒྱ་འཚོ་ཞིང་སྟོན་བརྒྱ་མཐོང་བ་དང་། །ཚེ་རིང་ནད་མེད་བདེ་སྐྱིད་ཕུན་སུམ་ཚོགས། །ཐེག་པ་མཆོག་ལ་ངེས་པར་འབྱུང་གྱུར་པའི། །བཀྲ་ཤིས་དེས་ཀྱང་དེང་འདིར་བདེ་ལེགས་ཤོག</div>
+      <div class="lang-row phon"><span class="lang-label">Phonetic</span>Lo gya tso shing tön gya tong-wa dang / Tse-ring nay-me de-kyid pün-sum tsok / Tek-pa chok la nge-par jung-gyur-pay / Ta-shi de-kyang deng dir de-lek shok</div>
+      <div class="lang-row eng"><span class="lang-label">English</span>May we live a hundred years and see a hundred autumns, may we have long life, no illness, perfect happiness, may we definitely enter the supreme vehicle — By such auspiciousness, may there be goodness here today.</div>
+      <div class="lang-row zh"><span class="lang-label">中文</span>享壽百歲見百秋，長壽無病樂圓滿，於勝乘中決定入，此吉祥願今此處善樂。</div>
+    </div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-inner">
+      <div class="lang-row tib"><span class="lang-label">Tibetan · Verse VI</span>སྦྱིན་པ་གཏོང་ཞིང་ཚུལ་ཁྲིམས་བསྲུང་བ་དང་། །བཟོད་པ་བསྒོམ་ཞིང་བརྩོན་འགྲུས་བརྩམ་པ་དང་། །མཉམ་པར་འཇོག་ཅིང་གནས་ལུགས་རྟོགས་གྱུར་པའི། །བཀྲ་ཤིས་དེས་ཀྱང་དེང་འདིར་བདེ་ལེགས་ཤོག</div>
+      <div class="lang-row phon"><span class="lang-label">Phonetic</span>Jin-pa tong-shing tsul-trim sung-wa dang / Zö-pa gom-shing tsön-drü tsam-pa dang / Nyam-par zhok-ching ne-luk tok-gyur-pay / Ta-shi de-kyang deng dir de-lek shok</div>
+      <div class="lang-row eng"><span class="lang-label">English</span>May we practice generosity and guard discipline, may we cultivate patience and exert joyous effort, may we rest in equipoise and realize the true nature — By such auspiciousness, may there be goodness here today.</div>
+      <div class="lang-row zh"><span class="lang-label">中文</span>行持布施護戒律，修習安忍發精進，入定證悟法性理，此吉祥願今此處善樂。</div>
+    </div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-inner">
+      <div class="lang-row tib"><span class="lang-label">Tibetan · Verse VII — Three Kāyas</span>མི་འགྱུར་ལྷུན་པོ་སྐུ་ཡི་བཀྲ་ཤིས་ཤོག །ཡན་ལག་དྲུག་ཅུ་གསུང་གི་བཀྲ་ཤིས་ཤོག །མཐའ་བྲལ་དྲི་མེད་ཐུགས་ཀྱི་བཀྲ་ཤིས་ཤོག །རྒྱལ་བའི་སྐུ་གསུང་ཐུགས་ཀྱི་བཀྲ་ཤིས་ཤོག</div>
+      <div class="lang-row phon"><span class="lang-label">Phonetic</span>Mi-gyur lhün-po ku yi ta-shi shok<br>Yen-lak druk-chu sung gi ta-shi shok<br>Tha-drel dri-me thuk kyi ta-shi shok<br>Gyal-way ku sung thuk kyi ta-shi shok</div>
+      <div class="lang-row eng"><span class="lang-label">English</span>May there be the auspiciousness of the unchanging, mountain-like body,<br>May there be the auspiciousness of the sixty-branched speech,<br>May there be the auspiciousness of the stainless, limitless mind,<br>May there be the auspiciousness of the body, speech, and mind of the Victor.</div>
+      <div class="lang-row zh"><span class="lang-label">中文</span>不變如山身吉祥，六十支分語吉祥，無邊離垢意吉祥，勝者身語意吉祥。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ -->
+<!-- PRAYERS FOR BEINGS -->
+<!-- ══════════════════════════════════ -->
+<section class="section" id="beings">
+  <div class="section-tag">14</div>
+  <h2 class="section-h">Prayers for Beings</h2>
+
+  <div class="verse">
+    <div class="verse-inner">
+      <div class="lang-row tib"><span class="lang-label">Tibetan</span>སེམས་ཅན་ནད་པ་ཇི་སྙེད་པ། །མྱུར་དུ་ནད་ལས་ཐར་གྱུར་ཅིག །འགྲོ་བའི་ནད་རྣམས་མ་ལུས་པ། །རྟག་ཏུ་འབྱུང་བ་མེད་པར་ཤོག །</div>
+      <div class="lang-row phon"><span class="lang-label">Phonetic</span>Sem-chen ne-pa ji-nye pa<br>Nyur-du ne-lay thar gyur chik<br>Dro-way ne-nam ma-lü pa<br>Tak-tu jung-wa me-par shok</div>
+      <div class="lang-row eng"><span class="lang-label">English</span>Whatever sick sentient beings there are, may they swiftly be freed from illness. All the diseases of beings without exception, may they forever cease to arise.</div>
+      <div class="lang-row zh"><span class="lang-label">中文</span>所有生病眾生，願彼等速脫病苦。一切眾生諸病無餘，願永不復生起。</div>
+    </div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-inner">
+      <div class="lang-row tib"><span class="lang-label">Tibetan</span>སྨན་རྣམས་མཐུ་དང་ལྡན་པ་དང་། །གསང་སྔགས་བཟླས་བརྗོད་འགྲུབ་པ་དང་། །མཁའ་འགྲོ་སྲིན་པོ་ལ་སོགས་པ། །སྙིང་རྗེའི་སེམས་དང་ལྡན་གྱུར་ཅིག</div>
+      <div class="lang-row phon"><span class="lang-label">Phonetic</span>Men-nam thu dang den-pa dang<br>Sang-ngak de-jö drub-pa dang<br>Kha-dro sin-po la-sok pa<br>Nying-je sem dang den gyur chik</div>
+      <div class="lang-row eng"><span class="lang-label">English</span>May medicines be potent, may secret mantras, when recited, be effective, may ḍākinīs, rākṣasas, and the like be endowed with compassionate minds.</div>
+      <div class="lang-row zh"><span class="lang-label">中文</span>願藥皆具威力，秘咒持誦悉成就，空行羅剎等眾，願具悲憫之心。</div>
+    </div>
+  </div>
+
+  <div class="verse">
+    <div class="verse-inner">
+      <div class="lang-row tib"><span class="lang-label">Tibetan — Final Auspicious Verse</span>གནས་འདིར་ཉིན་མོ་བདེ་ལེགས་མཚན་བདེ་ལེགས། །ཉི་མའི་གུང་ཡང་བདེ་ལེགས་ཤིང་། །ཉིན་མཚན་རྟག་ཏུ་བདེ་ལེགས་པ། །སྐྱབས་གནས་དཀོན་མཆོག་གསུམ་གྱི་བཀྲ་ཤིས་ཤོག</div>
+      <div class="lang-row phon"><span class="lang-label">Phonetic</span>Nä dir nyin-mo de-lek tsen de-lek<br>Nyi-may gung yang de-lek shing<br>Nyin-tsen tak-tu de-lek pa<br>Kyab-nay kön-chok sum gyi ta-shi shok</div>
+      <div class="lang-row eng"><span class="lang-label">English</span>In this place, may the day be good and the night be good, may the mid-day also be good, may day and night always be good — May there be the auspiciousness of the Three Precious Jewels of refuge.</div>
+      <div class="lang-row zh"><span class="lang-label">中文</span>此處晝吉祥夜吉祥，日中午時亦吉祥，日夜恆常悉吉祥，皈依處三寶之吉祥。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ -->
+<!-- COLOPHON -->
+<!-- ══════════════════════════════════ -->
+<section class="section" id="colophon">
+  <div class="section-tag">Colophon</div>
+  <h2 class="section-h">Colophon &amp; Lineage</h2>
+
+  <div class="colophon">
+    <p>This text, entitled <strong>"Fulfilling All Aspirations of This and Future Lives: A Method for Practicing the Essence of the Ritual Offering to the Eight Medicine Buddhas,"</strong> was composed at the request of the supreme regent and lord of siddhas <strong>Sönam Wangpo</strong> — the heart son of the great illuminator of the teachings in this degenerate age, the mantra-holder Dharma King <strong>Ngawang Kunga Rinchen</strong> — and the lord father, the hidden Buddha and mantra-holder <strong>Dragpa Lodrö</strong>, who was the Bodhisattva Śāntarakṣita born again into this world.</p>
+    <p>And by he who touched his head to the dust of the feet of many infallible holy mentors, principal among whom is the embodiment of the conquerors of the three times, the great Vajradhara <strong>Mupa Muchen Sangye Gyaltsen</strong> — the Sakyapa lay follower of the Shakya, the yogi of the supreme vehicle, <strong>Ngawang Kunga Sönam</strong> — who had great devotion to this Dharma system and desired to compose such a text.</p>
+    <p>Due to laziness, it was delayed, until a strong exhortation arose from <strong>Gön-sam</strong>, a master fully accomplished in all the texts and practical applications of the science of longevity (Ayurveda), who requested a convenient offering ritual suitable for daily practice.</p>
+    <p>Thus, beautifully compiling it exactly as it appears in the scriptures of the past lineage gurus, and completely avoiding any dilution with personal fabrications, this was composed in the <strong>Dragon Year, during the second waning phase of the fifth month</strong>, at the <strong>Ösel Nangwa chamber of the auspicious Zhitog Labrang at Pal Sakya.</strong></p>
+    <p>The scribe was <strong>Dong-gā-wa Sampa Dönchen</strong>, highly learned in medical sciences and exceptionally trained in the art of calligraphy.</p>
+    <p>For the convenience of foreign practitioners to read easily, the abbreviated words in the verses of confession, auspiciousness, and so forth were expanded from their original sources; this multilingual edition was compiled and arranged together in one place by <strong>Khenpo Kunga Rinchen.</strong></p>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<div class="closing">
+  <div class="div-orn">✦ · · · ✦ · · · ✦</div>
+  <div class="closing-tib">དེ་དེ་བཞིན་དུ་གྱུར་ཅིག། དེ་ལས་གཞན་དུ་ནམ་ཡང་མ་གྱུར་ཅིག། ཐམས་ཅད་དུ་དགེ་ཞིང་བཀྲ་ཤིས་པར་གྱུར་ཅིག</div>
+  <div class="closing-eng">May it be exactly so!<br>May it never be otherwise!<br>May all be virtuous and auspicious!</div>
+  <div class="closing-zh">愿如是成就！愿绝不退失！愿一切之处皆得吉祥与圆满！</div>
+  <div class="sarva">✦ &nbsp; Sarva Maṅgalam &nbsp; ✦</div>
+</div>
+
+</div><!-- /content -->
+</div><!-- /main -->
+
+<!-- SCROLL TOP -->
+<a id="top-btn" href="#hero" title="Back to top">↑</a>
+
+<script>
+const prog=document.getElementById('progress');
+const topBtn=document.getElementById('top-btn');
+window.addEventListener('scroll',()=>{
+  const st=window.scrollY,h=document.documentElement.scrollHeight-window.innerHeight;
+  prog.style.transform=`scaleX(${st/h})`;
+  topBtn.style.display=st>400?'flex':'none';
+  // active nav
+  const secs=document.querySelectorAll('section[id]');
+  let cur='';
+  secs.forEach(s=>{if(s.offsetTop-100<=st)cur=s.id});
+  document.querySelectorAll('#nav li a').forEach(a=>{
+    a.classList.toggle('active',a.getAttribute('href')==='#'+cur);
+  });
+});
+
+// language toggles
+document.querySelectorAll('.ltog').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const lang=btn.dataset.lang;
+    btn.classList.toggle('on');
+    document.body.classList.toggle('hide-'+lang,!btn.classList.contains('on'));
+  });
+});
+
+// close nav on mobile link click
+document.querySelectorAll('#nav li a').forEach(a=>{
+  a.addEventListener('click',()=>document.getElementById('nav').classList.remove('open'));
+});
+
+// close nav when clicking outside on mobile
+document.addEventListener('click',e=>{
+  const nav=document.getElementById('nav');
+  const btn=document.getElementById('menu-btn');
+  if(window.innerWidth<=900&&nav.classList.contains('open')&&!nav.contains(e.target)&&!btn.contains(e.target)){
+    nav.classList.remove('open');
+  }
+});
+</script>
+</body>
+</html>
