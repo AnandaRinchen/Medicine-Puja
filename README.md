@@ -1,3 +1,4 @@
+[![Live Puja Reader](https://img.shields.io/badge/🔵%20Read%20Online-Medicine%20Buddha%20Puja-1a4a7a?style=for-the-badge)](https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/)
 # 🔵 སྨན་བླ་ | Medicine Buddha Offering Ritual
 
 <div align="center">
